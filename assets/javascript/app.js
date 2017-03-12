@@ -10,7 +10,7 @@
 
   var database = firebase.database();
 
-$("#add-train-btn").on("click", function(event) {
+$("#add-train-btn").on("click", function(event) {  //file doesnt follow on click properly
   event.preventDefault();
 
   // Grabs user input
@@ -30,7 +30,6 @@ $("#add-train-btn").on("click", function(event) {
     frequency: trainFreq
   };
 
-  // Uploads employee data to the database
   database.ref().push(newTrain);
 
   // Logs everything to console
@@ -46,11 +45,11 @@ $("#add-train-btn").on("click", function(event) {
   $("#frequency-input").val("");
 
   // Prevents moving to new page
-  //return false;
+  return false;
 });
 
 
-database.ref().on("child_added", function(childSnapshot, prevChildKey) { 
+database.ref().on("child_added", function(childSnapshot, prevChildKey) { //File skips internal function
                         
   console.log(childSnapshot.val());
 
